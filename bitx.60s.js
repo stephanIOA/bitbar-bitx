@@ -1,6 +1,5 @@
 #!/usr/local/bin/node
 
-var fs = require('fs');
 var https = require('https');
 
 https.get('https://api.mybitx.com/api/1/ticker?pair=XBTZAR', function(res) {
@@ -10,7 +9,7 @@ https.get('https://api.mybitx.com/api/1/ticker?pair=XBTZAR', function(res) {
   }).on('error', function(err) {
     console.log('...')
   }).on('end', function() {
-    printStats(body);
+    printStats(JSON.parse(body));
   });
 })
 
